@@ -1,2 +1,0 @@
-# brainynight.github.io
-blog
