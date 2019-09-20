@@ -5,6 +5,13 @@ html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
 }
+/* Myself */
+@media screen and (max-width: 480px) {
+    .post-pic{
+        display: none;
+    }
+}
+/* ======== */
 
 article,
 aside,
@@ -1280,6 +1287,7 @@ img {
 .post-pic img {
     display: block;
     margin: 0 auto
+        
 }
 
 #blog-author {
