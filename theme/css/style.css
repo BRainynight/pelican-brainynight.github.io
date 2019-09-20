@@ -1,14 +1,9 @@
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
 html {
-    font-family: "Microsoft JhengHei", sans-serif;
+    font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
-}
-
-body {
-    font-family: "Microsoft JhengHei","微軟正黑體",sans-serif !important;
-    margin: 0
 }
 
 article,
@@ -334,7 +329,33 @@ th {
   src: url(http://example.com/fonts/Gentium.woff);
 }
 
-p { font-family: "Microsoft JhengHei","微軟正黑體",sans-serif; }
+
+@font-face
+{
+font-family: "KouzanMouhituFont"; /*"衡山毛筆フォント"*/
+src: url('https://cdn.leafscape.be/Kouzan/KouzanMouhitsu.woff2')
+     format("woff2");
+}
+
+@font-face
+{
+font-family: "衡山毛筆フォント行書";
+src: url('https://cdn.leafscape.be/Kouzan/kozangyousho_web.woff2')
+     format("woff2");
+}
+
+@font-face
+{
+font-family: "HanaMinA";
+src: 
+    url('https://github.com/tony/dot-fonts/blob/master/Hanazono/HanaMinA.ttf')
+     format("truetype");
+}
+
+
+p { 
+    font-family: "Microsoft JhengHei","微軟正黑體",sans-serif; 
+}
 
 
 .hljs {
@@ -479,8 +500,7 @@ html.menu-active,
 }
 
 body {
-    font-family:  "Microsoft JhengHei" ,sans-serif;
-    font: 400 2em / 1.5em 'Cardo', serif;
+    font: 400 2em / 1.5em "HanaMinA","Microsoft JhengHei"; /*400 2em / 1.5em 'Cardo', serif;*/
     color: #45484d;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -501,7 +521,9 @@ a:focus {
 }
 
 h1,
-h2,
+h2{
+    font-family: "HanaMinA";
+},
 h3,
 h4,
 h5,
@@ -685,7 +707,7 @@ tt {
     position: relative;
     margin: 0 0.333em;
     padding: 0.333em 0.666em;
-    font-family:  "Microsoft JhengHei", 'Inconsolata', monospace, sans-serif;
+    font-family:  "Microsoft JhengHei",'Inconsolata', monospace, sans-serif;
     font-size: 0.75em;
     white-space: pre;
     background: #faf9f7;
@@ -698,7 +720,7 @@ pre {
     margin: 2em auto;
     padding: 1em;
     overflow: hidden;
-    font-family:  "Microsoft JhengHei", 'Inconsolata', monospace, sans-serif;
+    font-family: "Microsoft JhengHei",'Inconsolata', monospace, sans-serif;
     white-space: pre;
     background: #faf9f7;
     border: 1px solid #e5e4e1;
@@ -909,7 +931,7 @@ img {
     z-index: 10;
     margin: 0;
     padding: 0;
-    font-family: "Microsoft JhengHei",'Fira Sans', sans-serif;
+    font-family: "衡山毛筆フォント行書","Microsoft JhengHei",'Fira Sans', sans-serif;
     font-weight: 700;
     font-size: 2em;
     line-height: 1em;
@@ -1253,6 +1275,11 @@ img {
 
 .credits-software {
     float: right
+}
+
+.post-pic img {
+    display: block;
+    margin: 0 auto
 }
 
 #blog-author {
