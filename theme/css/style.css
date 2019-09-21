@@ -13,6 +13,8 @@ html {
 }
 
 
+/*-----------*/
+
 /* ======== */
 
 article,
@@ -511,7 +513,7 @@ html.menu-active,
 }
 
 body {
-    font: 400 2em / 1.5em "HanaMinA","Microsoft JhengHei"; /*400 2em / 1.5em 'Cardo', serif;*/
+    font: 400 2em / 1.5em "HanaMinA","Microsoft JhengHei"; /* 400 2em / 1.5em 'Cardo', serif; */
     color: #45484d;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -718,7 +720,7 @@ tt {
     position: relative;
     margin: 0 0.333em;
     padding: 0.333em 0.666em;
-    font-family:  "Microsoft JhengHei",'Inconsolata', monospace, sans-serif;
+    font-family:  'Inconsolata', monospace, sans-serif;
     font-size: 0.75em;
     white-space: pre;
     background: #faf9f7;
@@ -730,13 +732,25 @@ pre {
     position: relative;
     margin: 2em auto;
     padding: 1em;
-    overflow: hidden;
-    font-family: "Microsoft JhengHei",'Inconsolata', monospace, sans-serif;
+    /* overflow: hidden; */
+    font-family: 'Inconsolata', monospace, sans-serif;
     white-space: pre;
     background: #faf9f7;
     border: 1px solid #e5e4e1;
-    box-sizing: border-box
+    box-sizing: border-box;
+        
+    /*Myself*/
+    
+    font-size: 16px;
+    white-space: pre-line;
+    overflow: auto;
+    word-break: break-all;  
+        
 }
+
+
+
+
 
 pre .lines {
     position: absolute;
