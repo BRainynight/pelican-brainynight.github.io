@@ -178,6 +178,11 @@ mingw-get-setup 的應用程式，並且把<strong>所有的選項勾起來，�
 <p>查看 Makefile文件的第41行。這個問題是:指令前必須縮排，而<strong>縮排必須是tab</strong>。  </p>
 <p>我使用brackets作為編輯文件，右下角的設定切換成了「tab長度:4」(表示使用tab作為縮排。)  <br>
 把41行前的縮排刪掉，重新使用tab縮排，就成功了!  </p>
+<h1>寫Makefile!!</h1>
+<h2>cd</h2>
+<p>Makefile 的 action section 中每一行 command 是會呼叫不同 shell instance,<br>
+因此, 如果要讓 Makefile 中執行 cd 切換資料夾再執行後續的指令，則<strong>要把 commands concat 在一起, 用 ';' 隔開</strong>
+<a href="http://pccts.blogspot.com/2010/03/makefile-cd.html">在makefile做cd動作</a></p>
 <!--Pic storge -->
             </section>
 
