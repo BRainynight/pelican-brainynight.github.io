@@ -748,6 +748,12 @@ pre {
         
 }
 
+/*Myself*/
+div .pic-commit{
+    text-align: center;
+    color:#34495E;  
+    font-size:0.75em;
+}
 
 
 
@@ -844,8 +850,10 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
-    margin: 2.5em auto
+    margin:2.5em auto; /* 2.5em auto; */
+    z-index: -1;
 }
+
 
 .clear {
     clear: both
