@@ -518,7 +518,9 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden
+    overflow-x: hidden;
+	padding:2.3em 0;
+	line-height: 1.788em;
 }
 
 a {
@@ -603,7 +605,7 @@ ol>li:before {
     font-family:  "Microsoft JhengHei", 'Fira Sans', sans-serif;
     font-size: 1em;
     font-weight: 500;
-    line-height: 1.5em;
+	line-height: 1.5em;
     text-align: right;
     color: #000
 }
