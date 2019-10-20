@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>[影像辨識]建模前的背景知識</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="/20191012_Colab.html" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+    <meta name="description" content="使用 Colab 訓練神經網路">
+
+    <meta name="author" content="夜雨">
+
+    <meta name="tags" content="Technology">
+    <meta name="tags" content="Tool">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="夜語"/>
+<meta property="og:title" content="[影像辨識]建模前的背景知識"/>
+<meta property="og:description" content="使用 Colab 訓練神經網路"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/20191012_Colab.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-10-12 14:00:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/ye-yu.html">
+<meta property="article:section" content="科技筆記"/>
+<meta property="article:tag" content="Technology"/>
+<meta property="article:tag" content="Tool"/>
+<meta property="og:image" content="/static/cover_images/coding.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "[影像辨識]建模前的背景知識",
+  "headline": "[影像辨識]建模前的背景知識",
+  "datePublished": "2019-10-12 14:00:00+08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "夜雨",
+    "url": "/author/ye-yu.html"
+  },
+  "image": "/static/cover_images/coding.jpg",
+  "url": "/20191012_Colab.html",
+  "description": "使用 Colab 訓練神經網路"
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+		
+ <!-- dire in /content/pages -->
+		  <li role="presentation"><a href="/pages/20180828_About.html">About</a></li>
+		  <li role="presentation"><a href="/pages/20191015_Storage.html">Storage</a></li>
+		
+	<!--MENU TAG (my change)-->
+		
+		  <li >
+			  <a href="/category/coding.html">Coding</a>
+		  </li>
+		  <li >
+			  <a href="/category/gong-ju.html">工具</a>
+		  </li>
+		  <li class="active" >
+			  <a href="/category/ke-ji-bi-ji.html">科技筆記</a>
+		  </li>
+		  <li >
+			  <a href="/category/lu-shang-jing-ji.html">陸上競技</a>
+		  </li>
+		  <li >
+			  <a href="/category/running.html">Running</a>
+		  </li>
+		  <li >
+			  <a href="/category/ying-xiang-bian-shi.html">影像辨識</a>
+		  </li>
+	<!--my change end-->
+
+<!--
+              <li role="presentation"><a href="/pages/20180828_About.html">About</a></li>
+              <li role="presentation"><a href="/pages/20191015_Storage.html">Storage</a></li>
+-->
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">[影像辨識]建模前的背景知識</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="/author/ye-yu.html">夜雨</a>
+            | <time datetime="2019-10-12, 周六">2019-10-12, 周六</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="vertical-align:text-top; background-image: url('/static/cover_images/coding.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <h1 id="_1">簡介</h1>
+<p>(擷取自 : <a href="https://mattwang44.github.io/en/articles/colab/">Colab基本操作筆記</a> )</p>
+<p>Colab是 Google 提供 <a href="http://jupyter.org/">Jupyter Notebook</a>開發環境。內建 Python, tensorflow, OpenCV等函式庫。提供了免費的 GPU (型號為<a href="https://www.nvidia.com/en-us/data-center/tesla-k80/">Tesla K80 GPU</a>)、TPU 加速器。  </p>
+<p>但是每次使用上有<strong>時間限制</strong>，需要特別小心 : </p>
+<ol>
+<li>12小時的連續使用</li>
+<li>90 分鐘的閒置斷開</li>
+</ol>
+<p>上面的資料來源給了很詳細的操作說明，本篇記錄一些改版後的修正，還有自身使用到的功能。</p>
+<h1 id="gpu">GPU</h1>
+<p>修改GPU加速器的地方，當前版本 (2019/10) 移動至</p>
+<blockquote>
+<p>Edit → Notebook seetings → Hardware accelerator : GPU。</p>
+</blockquote>
+<p><img alt="Colab硬體配置" src="https://miro.medium.com/max/473/1*uEpSTqui-sYkrFbm4yl7RQ.png"></p>
+<h1 id="root-vs">注意: /root  vs. ~</h1>
+<p>一進入Colab的「桌面」是 <code>/content</code>；<code>cd ~</code>會進入root。</p>
+<p><code>cd ~</code> 和 <code>cd /root</code>的意義是等價的。</p>
+<p>但是如果下指令儲存 或 移動檔案至 <code>~/model/.torch/hihi.th</code> 之類的，<strong>不會成功移動</strong>。</p>
+<p>需使用 <code>/root/model/.torch/hihi.th</code> </p>
+<p><summary></p>
+<div class="highlight"><pre><span></span><span class="p">.</span>
+<span class="err">├──</span> <span class="n">bin</span>
+<span class="err">├──</span> <span class="n">boot</span>
+<span class="err">├──</span> <span class="n">content</span> <span class="o">#</span><span class="err">桌面</span>
+<span class="err">├──</span> <span class="n">datalab</span>
+<span class="err">├──</span> <span class="n">dev</span>
+<span class="err">├──</span> <span class="n">etc</span>
+<span class="err">├──</span> <span class="n">home</span>
+<span class="err">├──</span> <span class="n">lib</span>
+<span class="err">├──</span> <span class="n">lib32</span>
+<span class="err">├──</span> <span class="n">lib64</span>
+<span class="err">├──</span> <span class="n">media</span>
+<span class="err">├──</span> <span class="n">mnt</span>
+<span class="err">├──</span> <span class="n">opt</span>
+<span class="err">├──</span> <span class="n">proc</span>
+<span class="err">├──</span> <span class="n">root</span>
+<span class="err">├──</span> <span class="n">run</span>
+<span class="err">├──</span> <span class="n">sbin</span>
+<span class="err">├──</span> <span class="n">srv</span>
+<span class="err">├──</span> <span class="n">swift</span>
+<span class="err">├──</span> <span class="n">sys</span>
+<span class="err">├──</span> <span class="n">tensorflow</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">rc2</span>
+<span class="err">├──</span> <span class="n">tmp</span>
+<span class="err">├──</span> <span class="n">tools</span>
+<span class="err">├──</span> <span class="n">usr</span>
+<span class="err">└──</span> <span class="n">var</span>
+<span class="err">​</span><span class="o">```&lt;/</span><span class="n">summary</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<h1 id="google-drive">傳到Google Drive</h1>
+<ul>
+<li>
+<p>Error: 當上傳的檔案已有的時候，colab_util 有用到一個對 dict Delet 的函式，修改依然會跳出此錯誤...。我後來是使它上傳的名字都不一樣(時間戳章)，因為主要目的是備份、所以暫時就先不管它。</p>
+</li>
+<li>
+<p>這個方法讓我成功了一個多小時，但是中途報錯。或許是他發的憑證有時間限制吧。
+  <code>InvalidConfigError: Invalid client secrets file File not found: "client_secrets.json"</code></p>
+</li>
+</ul>
+<p><strong>Solution</strong>: 去google api 申請 <em>OAuth 2.0的憑證</em>，下載 client_secrets.json，傳上Colab的開發環境，放在 該執行python檔案目錄中。</p>
+<ul>
+<li>有關Delet，後來在其他網站有看到筆記，尚未來得及實驗。<a href="https://medium.com/@fsflyingsoar/筆記-for-python-google-colab-google-drive-e0f2a569fb7f">筆記 for Python (Google Colab + PyDrive)</a></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">colab_util</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">drive_handler</span> <span class="o">=</span> <span class="n">GoogleDriveHandler</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">save_to_Gdrive</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="n">time_stamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">-%H-%M-%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+    <span class="n">Gdrive_filename</span> <span class="o">=</span> <span class="n">filename</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span><span class="o">+</span><span class="n">time_stamp</span><span class="o">+</span><span class="s2">&quot;.pth&quot;</span>
+    <span class="n">colab_file_path</span> <span class="o">=</span> <span class="n">Gdrive_filename</span>
+
+    <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">colab_file_path</span> <span class="p">)</span>
+    <span class="n">drive_handler</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span> <span class="n">colab_file_path</span> <span class="p">,</span> <span class="n">parent_path</span><span class="o">=</span><span class="s1">&#39;test_folder&#39;</span><span class="p">)</span>
+
+    <span class="n">drive_handler</span><span class="o">.</span><span class="n">list_folder</span><span class="p">(</span><span class="n">test_folder_id</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">Gdrive_filename</span><span class="p">,</span><span class="s2">&quot;is save to drive.&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h1 id="pc">下載到本機 ( PC )</h1>
+<ul>
+<li>直接下載到電腦內，但是無法用路徑指定下載的樣子
+   ex. <code>files.download('\content\example.txt')</code></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+<span class="n">test_folder_id</span> <span class="o">=</span> <span class="n">drive_handler</span><span class="o">.</span><span class="n">create_folder</span><span class="p">(</span><span class="s1">&#39;test_folder&#39;</span><span class="p">)</span>
+
+
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;example.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;some content&#39;</span><span class="p">)</span>
+<span class="n">files</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;example.txt&#39;</span><span class="p">)</span>
+</pre></div>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=[影像辨識]建模前的背景知識&amp;url=/20191012_Colab.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/20191012_Colab.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=/20191012_Colab.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="/tag/technology.html">Technology</a><a href="/tag/tool.html">Tool</a>                </aside>
+
+                <div class="clear"></div>
+
+                <aside class="post-author">
+
+
+                        <figure class="post-author-avatar">
+                            <img src="https://img.icons8.com/cotton/256/000000/cat" alt="夜雨" />
+                        </figure>
+                    <div class="post-author-bio">
+                        <h4 class="post-author-name"><a href="/author/ye-yu.html">夜雨</a></h4>
+                            <p class="post-author-about">雜事集散地，介紹在右方隱藏欄:About。  科技筆記(內容不拘):安裝、Debug遇到的困難\閱讀論文熟悉的背景\之後希望閱讀的文章，皆有。</p>
+                            <span class="post-author-location"><i class="ic ic-location"></i> Taiwan</span>
+                            <span class="post-author-website"><a href="https://medium.com/brainynight"><i class="ic ic-link"></i> Website</a></span>
+                        <!-- Social linkes in alphabet order. -->
+                    </div>
+                    <div class="clear"></div>
+                </aside>
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <a class="post-nav-next" href="/20191013_PyTorch.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-left"></i>
+                                <h2 class="post-nav-title">[工具] PyTorch</h2>
+                            <p class="post-nav-excerpt">PyTorch</p>
+                        </section>
+                    </a>
+                    <a class="post-nav-prev" href="/20190405_pandas.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">Python-中文亂碼</h2>
+                            <p class="post-nav-excerpt">to_json 與 中文亂碼問題</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/theme/js/script.js"></script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>[工具] Git</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="/20191001_Git.html" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+    <meta name="description" content="Git的使用筆記">
+
+    <meta name="author" content="夜雨">
+
+    <meta name="tags" content="Technology">
+    <meta name="tags" content="Tool">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="夜語"/>
+<meta property="og:title" content="[工具] Git"/>
+<meta property="og:description" content="Git的使用筆記"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/20191001_Git.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-10-01 14:00:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/ye-yu.html">
+<meta property="article:section" content="科技筆記"/>
+<meta property="article:tag" content="Technology"/>
+<meta property="article:tag" content="Tool"/>
+<meta property="og:image" content="/static/cover_images/coding.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "[工具] Git",
+  "headline": "[工具] Git",
+  "datePublished": "2019-10-01 14:00:00+08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "夜雨",
+    "url": "/author/ye-yu.html"
+  },
+  "image": "/static/cover_images/coding.jpg",
+  "url": "/20191001_Git.html",
+  "description": "Git的使用筆記"
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+		
+ <!-- dire in /content/pages -->
+		  <li role="presentation"><a href="/pages/20180828_About.html">About</a></li>
+		  <li role="presentation"><a href="/pages/20191015_Storage.html">Storage</a></li>
+		
+	<!--MENU TAG (my change)-->
+		
+		  <li >
+			  <a href="/category/coding.html">Coding</a>
+		  </li>
+		  <li >
+			  <a href="/category/gong-ju.html">工具</a>
+		  </li>
+		  <li class="active" >
+			  <a href="/category/ke-ji-bi-ji.html">科技筆記</a>
+		  </li>
+		  <li >
+			  <a href="/category/lu-shang-jing-ji.html">陸上競技</a>
+		  </li>
+		  <li >
+			  <a href="/category/running.html">Running</a>
+		  </li>
+		  <li >
+			  <a href="/category/ying-xiang-bian-shi.html">影像辨識</a>
+		  </li>
+	<!--my change end-->
+
+<!--
+              <li role="presentation"><a href="/pages/20180828_About.html">About</a></li>
+              <li role="presentation"><a href="/pages/20191015_Storage.html">Storage</a></li>
+-->
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">[工具] Git</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="/author/ye-yu.html">夜雨</a>
+            | <time datetime="2019-10-01, 周二">2019-10-01, 周二</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="vertical-align:text-top; background-image: url('/static/cover_images/coding.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+				<div class="right-info" id="Toc">
+					<span class="toctitle" style="font-size: 2em;">目錄</span>
+					<div class="toc">
+<ul>
+<li><a href="#git-github">Git 與 Github ...?</a><ul>
+<li><a href="#git-clone">Git clone</a></li>
+</ul>
+</li>
+<li><a href="#error">Error</a><ul>
+<li><a href="#fatal-remote-origin-already-exists">fatal: remote origin already exists</a></li>
+<li><a href="#username">無法辨識 Username</a></li>
+</ul>
+</li>
+<li><a href="#github-git">GitHub創辦人 親自指導你精通 Git</a><ul>
+<li><a href="#ch1">Ch1  入門與設定</a><ul>
+<li><a href="#_1">三種狀態</a></li>
+<li><a href="#git-config">環境設定 : git config</a></li>
+<li><a href="#_2">使用者身分</a></li>
+<li><a href="#use-notepad">個人編輯器 : use notepad</a></li>
+<li><a href="#_3">檢視設定</a></li>
+</ul>
+</li>
+<li><a href="#ch2">Ch2 基礎</a><ul>
+<li><a href="#git">把當前的目錄加入Git</a><ul>
+<li><a href="#_4">跳過暫存直接遞交</a></li>
+</ul>
+</li>
+<li><a href="#_5">複製網路上的倉庫</a></li>
+<li><a href="#_6">檔案操作</a><ul>
+<li><a href="#_7">檢視倉庫中的檔案狀態.</a></li>
+<li><a href="#_8">忽略檔案</a></li>
+<li><a href="#_9">刪除檔案</a><ul>
+<li><a href="#_10">範例</a></li>
+</ul>
+</li>
+<li><a href="#_11">移動檔案</a></li>
+</ul>
+</li>
+<li><a href="#_12">檢視歷史</a></li>
+<li><a href="#_13">取消操作</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>			
+				</div>
+        <div class="inner">
+            <section class="post-content">
+                
+<h1 id="git-github">Git 與 Github ...?</h1>
+<p><a href="https://gitbook.tw/chapters/github/push-to-github.html">Git教學：如何 Push 上傳到 GitHub？</a></p>
+<h2 id="git-clone">Git clone</h2>
+<ul>
+<li>
+<p>public repository
+        使用上一般的指令即可
+            <code>git clone https://github.com/strafe/project.git</code></p>
+</li>
+<li>
+<p>private repository
+    <code>git clone https://strafe:mygithubpassword@github.com/strafe/project.git</code>
+    注意使用這個方式，有可能使自己的密碼被寫在repo當中，必須謹慎分享此連結。</p>
+</li>
+</ul>
+<p><a href="https://github.community/t5/How-to-use-Git-and-GitHub/Clone-private-repo/td-p/12616">Clone private</a></p>
+<h1 id="error">Error</h1>
+<h2 id="fatal-remote-origin-already-exists"><a href="https://blog.csdn.net/Wbiokr/article/details/73436695">fatal: remote origin already exists</a></h2>
+<div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="n">origin</span><span class="w"></span>
+<span class="n">git</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">git</span><span class="nv">@github</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="o">[</span><span class="n">your git name</span><span class="o">]/[</span><span class="n">your git repertory</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+<h2 id="username">無法辨識 Username</h2>
+<div class="highlight"><pre><span></span><span class="nv">fatal</span>: <span class="nv">could</span> <span class="nv">not</span> <span class="nv">read</span> <span class="nv">Username</span> <span class="k">for</span> <span class="s1">'</span><span class="s">xxx</span><span class="s1">'</span>: <span class="nv">Device</span> <span class="nv">not</span> <span class="nv">configured</span>
+</pre></div>
+<h1 id="github-git">GitHub創辦人 親自指導你精通 Git</h1>
+<h2 id="ch1">Ch1  入門與設定</h2>
+<h3 id="_1">三種狀態</h3>
+<ul>
+<li>committed 已遞交 : 進入本機資料庫</li>
+<li>modified 已修改 : 改動檔案，尚未遞交資料庫</li>
+<li>staged 已暫存 : 對修改的檔案目前的版本標識，將其加入下次要遞交的快照當中。</li>
+</ul>
+<h3 id="git-config">環境設定 : git config</h3>
+<p>每一級會覆蓋上一級的設定，因此<code>.git/config</code>優於<code>/etc/gitconfig</code></p>
+<ul>
+<li><code>/etc/gitconfig</code>: 系統中所有的使用者與倉庫的值，<code>git config --system</code>從裡面調用，改寫設定變數</li>
+<li><code>~/.gitconfig</code> or  <code>~/.config/git/config</code> : 針對自己，傳入 <code>--global</code>改寫</li>
+<li>當前目錄下的 <code>.git/config</code>: 針對單一倉庫。</li>
+</ul>
+<h3 id="_2">使用者身分</h3>
+<p>每一次遞交都需要用到這些資訊，會被寫入遞交中，不可更改。</p>
+<p>傳入<code>--global</code> ，就只需設定一次，如果在某特殊專案想改用其他用戶資訊，在該專案設定中，指令不要輸入 <code>--global</code>即可。</p>
+<div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global user.name "NAME"</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global user.email xxxx@example.com</span>
+</pre></div>
+<h3 id="use-notepad">個人編輯器 : use notepad</h3>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="c1">--global core.editor "'YOUR NOTEPAD.exe PATH' --multiInst "</span>
+</pre></div>
+<h3 id="_3">檢視設定</h3>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="c1">--list #全部的值</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">&lt;</span><span class="k">key</span><span class="o">&gt;</span> <span class="o">#</span><span class="err">單一</span><span class="n">key的值</span> <span class="n">ex</span><span class="p">.</span> <span class="n">git</span> <span class="n">config</span> <span class="k">user</span><span class="p">.</span><span class="n">name</span>
+</pre></div>
+<h2 id="ch2">Ch2 基礎</h2>
+<h3 id="git">把當前的目錄加入Git</h3>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">init</span> <span class="o">#</span><span class="err">建立，但是尚未追蹤任何檔案</span>
+<span class="n">git</span> <span class="k">add</span> <span class="p">.</span>
+<span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">m</span><span class="ss">"Your commit"</span>
+</pre></div>
+<h4 id="_4">跳過暫存直接遞交</h4>
+<p>加上<code>-a</code>，如此一來不必再使用<code>git add</code>。</p>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span><span class="ss">"YOUR commit"</span>
+</pre></div>
+<h3 id="_5">複製網路上的倉庫</h3>
+<p><code>git clone</code>會將伺服器上的所有，包含歷史版本複製。可以在url後面，加上自己想更改的新專案名字。</p>
+<div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="o">[</span><span class="n">URL</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">MyProjectName (Optional)</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+<h3 id="_6">檔案操作</h3>
+<h4 id="_7">檢視倉庫中的檔案狀態.</h4>
+<p>+--  Tracked 已追蹤
+|   +-- 未修改
+|   +-- 已修改
+|   +-- 已暫存
++-- Untracked 未追蹤 </p>
+<ul>
+<li>
+<p>Untracked 未追蹤 : 指上次遞交快照時，快照中沒有的檔案。Git 不會主動將他們放到下次的遞交名單，除非告訴Git需要追蹤。</p>
+</li>
+<li>
+<p><code>git status</code> : 檢視目前的檔案狀態</p>
+</li>
+<li>
+<p><code>git status -s</code> : 檢視目前的檔案狀態 (簡潔版)<br/>
+    簡潔版的輸出格式為: (暫存與否)(修改與否)  路徑&amp;檔案名<br/>
+    A (已暫存)、M(已修改)、??(沒被追蹤的新檔案)、MM (已修改並已放到暫存區)</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span> <span class="n">M</span> <span class="n">README</span> <span class="o">#</span>
+<span class="o">??</span> <span class="n">LICENSE</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+<ul>
+<li><code>git diff</code> : 哪些變更還沒有暫存?  顯示出<strong>尚未進入暫存的變更</strong>，輸出是更新(patch))
+    如果所有的變更都進入暫存區，此指令不會輸出任何內容。</li>
+<li><code>git diff --staged</code> : 哪些已暫存的變更正在等待提交 。會將<strong>正在暫存的內容</strong>和<strong>上次遞交的內容</strong>做比較。</li>
+<li><code>git diff --cached</code>: staged 和 cached 是同義字，兩個指令等價。  </li>
+</ul>
+<h4 id="_8">忽略檔案</h4>
+<p>建立一個<code>.gitignore</code>的檔案，描述要掠過的檔案名稱。
+參見 <a href="https://github.com/github/gitignore">A collection of useful .gitignore templates</a></p>
+<h4 id="_9">刪除檔案</h4>
+<p>從Git中移除某個檔案: <code>git rm</code></p>
+<ul>
+<li>自行把檔案從工作目錄刪除，記得使用<code>git rm</code>告訴 git 別追了，否則該檔案狀態會處於 <code>Changes not staged for commit</code>。 </li>
+<li>更改某個檔案，並且已經暫存: 使用<code>-f</code>強制移除。如此一來的資料無法透過 git 恢復。</li>
+<li>檔案保留工作目錄，但從暫存區移除 (不讓Git管理 但忘記寫在 <code>.gitignore</code>): 
+    <code>git rm --cached filename</code></li>
+</ul>
+<h5 id="_10">範例</h5>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">rm</span> <span class="n">log</span><span class="o">/</span><span class="err">\</span><span class="o">*</span><span class="p">.</span><span class="n">log</span> <span class="o">#</span> <span class="err">刪除</span><span class="n">log資料夾下</span><span class="err">，所有副檔名是</span> <span class="p">.</span><span class="n">log</span> <span class="err">的</span>
+<span class="n">git</span> <span class="n">rm</span> <span class="err">\</span><span class="o">*~</span> <span class="o">#</span><span class="err">刪除所有</span> <span class="err">「</span><span class="o">~</span><span class="err">」</span> <span class="err">結尾的檔案。</span>
+</pre></div>
+<h4 id="_11">移動檔案</h4>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">mv</span> <span class="n">file_from</span> <span class="n">file_to</span>
+</pre></div>
+<p>此指令相當於</p>
+<div class="highlight"><pre><span></span><span class="n">mv</span> <span class="n">file_from</span> <span class="n">file_to</span>
+<span class="n">git</span> <span class="n">rm</span> <span class="n">file_from</span> 
+<span class="n">git</span> <span class="k">add</span> <span class="n">file_to</span>
+</pre></div>
+<p>(其實直接給檔案改名，Git還是會知道)</p>
+<h3 id="_12">檢視歷史</h3>
+<p><code>git log</code>
+選擇性選項: 
+*   <code>-p -2</code>: 每次遞交的差異，顯示近期兩次的。每筆資料後面會帶有<code>diff</code>資訊
+*   <code>--stat</code>: 每個遞交的簡要統計資訊 : 改動的檔案列表，多少倍改動，多少新增刪除行....</p>
+<p><a href="https://git-scm.com/book/zh-tw/v1/Git-%E5%9F%BA%E7%A4%8E-%E6%AA%A2%E8%A6%96%E6%8F%90%E4%BA%A4%E7%9A%84%E6%AD%B7%E5%8F%B2%E8%A8%98%E9%8C%84">...更多</a></p>
+<h3 id="_13">取消操作</h3>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="k">commit</span> <span class="c1">--amend</span>
+</pre></div>
+<p>如果檔案有更動，修正已提交的快照(算在同一次)。</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=[工具] Git&amp;url=/20191001_Git.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/20191001_Git.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=/20191001_Git.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="/tag/technology.html">Technology</a><a href="/tag/tool.html">Tool</a>                </aside>
+
+                <div class="clear"></div>
+
+                <aside class="post-author">
+
+
+                        <figure class="post-author-avatar">
+                            <img src="https://img.icons8.com/cotton/256/000000/cat" alt="夜雨" />
+                        </figure>
+                    <div class="post-author-bio">
+                        <h4 class="post-author-name"><a href="/author/ye-yu.html">夜雨</a></h4>
+                            <p class="post-author-about">雜事集散地，介紹在右方隱藏欄:About。  科技筆記(內容不拘):安裝、Debug遇到的困難\閱讀論文熟悉的背景\之後希望閱讀的文章，皆有。</p>
+                            <span class="post-author-location"><i class="ic ic-location"></i> Taiwan</span>
+                            <span class="post-author-website"><a href="https://medium.com/brainynight"><i class="ic ic-link"></i> Website</a></span>
+                        <!-- Social linkes in alphabet order. -->
+                    </div>
+                    <div class="clear"></div>
+                </aside>
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <a class="post-nav-next" href="/20190405_pandas.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-left"></i>
+                                <h2 class="post-nav-title">Python-中文亂碼</h2>
+                            <p class="post-nav-excerpt">to_json 與 中文亂碼問題</p>
+                        </section>
+                    </a>
+                    <a class="post-nav-prev" href="/20190928_Makefile_tutorial.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">Makefile的說明</h2>
+                            <p class="post-nav-excerpt">Make的安裝、以及一些報錯。</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/theme/js/script.js"></script>
+
+</body>
+</html>
+
+

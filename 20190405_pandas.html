@@ -22,10 +22,6 @@
   <!-- Code highlight color scheme -->
       <link href="/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
 
-    <!-- CSS specified by the user -->
-
-
-    <link href="/static/css/myblog.css" type="text/css" rel="stylesheet" />
 
   <!-- Custom fonts -->
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
@@ -101,6 +97,7 @@
 		
  <!-- dire in /content/pages -->
 		  <li role="presentation"><a href="/pages/20180828_About.html">About</a></li>
+		  <li role="presentation"><a href="/pages/20191015_Storage.html">Storage</a></li>
 		
 	<!--MENU TAG (my change)-->
 		
@@ -126,6 +123,7 @@
 
 <!--
               <li role="presentation"><a href="/pages/20180828_About.html">About</a></li>
+              <li role="presentation"><a href="/pages/20191015_Storage.html">Storage</a></li>
 -->
 
     </ul>
@@ -167,7 +165,7 @@
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                <h1>寫入多重list</h1>
+                <h1 id="list">寫入多重list</h1>
 <p>當一個ID擁有多個層級的資料時，
 完全平坦化，增加dataframe的行列雖然直觀，但會使原有關係的資料變得無關。
 不如在dataframe的位置放入多重list，再將整個dataframe轉成json儲存。
@@ -209,7 +207,7 @@
 </pre></div>
 
 
-<h1><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame">DataFrame提取的資料</a></h1>
+<h1 id="dataframe"><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame">DataFrame提取的資料</a></h1>
 <p><code>df.loc['name']</code>:用 string取資料。<br>
 <code>df.iloc[0]</code>: iloc 是 index based 取資料的方式  </p>
 <p>如果只是一般的使用類似矩陣引法，注意是先讀取col，再讀取col中的第幾個順序: <code>df[col][num]</code></p>
@@ -219,7 +217,7 @@
 </pre></div>
 
 
-<h1>Json的儲存</h1>
+<h1 id="json">Json的儲存</h1>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="n">js</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="n">force_ascii</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;testjson.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -227,7 +225,7 @@
 </pre></div>
 
 
-<h1>從檔案讀取</h1>
+<h1 id="_1">從檔案讀取</h1>
 <p>記得要寫 <code>encoding = utf-8 !!</code> <br>
 加上<code>-sig</code>是因為有時候開頭文件會有一組碼，加上-sig可以忽略他。</p>
 <p><strong>ERROR:</strong>
@@ -280,11 +278,18 @@
 
 
                 <aside class="post-nav">
-                    <a class="post-nav-prev" href="/20190928_Makefile_tutorial.html">
+                    <a class="post-nav-next" href="/20191012_Colab.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-left"></i>
+                                <h2 class="post-nav-title">[影像辨識]建模前的背景知識</h2>
+                            <p class="post-nav-excerpt">使用 Colab 訓練神經網路</p>
+                        </section>
+                    </a>
+                    <a class="post-nav-prev" href="/20191001_Git.html">
                         <section class="post-nav-teaser">
                             <i class="ic ic-arrow-right"></i>
-                                <h2 class="post-nav-title">Makefile的說明</h2>
-                            <p class="post-nav-excerpt">Make的安裝、以及一些報錯。</p>
+                                <h2 class="post-nav-title">[工具] Git</h2>
+                            <p class="post-nav-excerpt">Git的使用筆記</p>
                         </section>
                     </a>
                     <div class="clear"></div>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>[CSS] 懸浮目錄</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="/20191018_floating_toc.html" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+    <meta name="description" content="漂浮在畫面旁邊的目錄">
+
+    <meta name="author" content="夜雨">
+
+    <meta name="tags" content="CSS">
+    <meta name="tags" content="Technology">
+    <meta name="tags" content="HTML">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="夜語"/>
+<meta property="og:title" content="[CSS] 懸浮目錄"/>
+<meta property="og:description" content="漂浮在畫面旁邊的目錄"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/20191018_floating_toc.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-10-18 12:00:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/ye-yu.html">
+<meta property="article:section" content="科技筆記"/>
+<meta property="article:tag" content="CSS"/>
+<meta property="article:tag" content="Technology"/>
+<meta property="article:tag" content="HTML"/>
+<meta property="og:image" content="/static/cover_images/coding.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "[CSS] 懸浮目錄",
+  "headline": "[CSS] 懸浮目錄",
+  "datePublished": "2019-10-18 12:00:00+08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "夜雨",
+    "url": "/author/ye-yu.html"
+  },
+  "image": "/static/cover_images/coding.jpg",
+  "url": "/20191018_floating_toc.html",
+  "description": "漂浮在畫面旁邊的目錄"
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+		
+ <!-- dire in /content/pages -->
+		  <li role="presentation"><a href="/pages/20180828_About.html">About</a></li>
+		  <li role="presentation"><a href="/pages/20191015_Storage.html">Storage</a></li>
+		
+	<!--MENU TAG (my change)-->
+		
+		  <li >
+			  <a href="/category/coding.html">Coding</a>
+		  </li>
+		  <li >
+			  <a href="/category/gong-ju.html">工具</a>
+		  </li>
+		  <li class="active" >
+			  <a href="/category/ke-ji-bi-ji.html">科技筆記</a>
+		  </li>
+		  <li >
+			  <a href="/category/lu-shang-jing-ji.html">陸上競技</a>
+		  </li>
+		  <li >
+			  <a href="/category/running.html">Running</a>
+		  </li>
+		  <li >
+			  <a href="/category/ying-xiang-bian-shi.html">影像辨識</a>
+		  </li>
+	<!--my change end-->
+
+<!--
+              <li role="presentation"><a href="/pages/20180828_About.html">About</a></li>
+              <li role="presentation"><a href="/pages/20191015_Storage.html">Storage</a></li>
+-->
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">[CSS] 懸浮目錄</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="/author/ye-yu.html">夜雨</a>
+            | <time datetime="2019-10-18, 周五">2019-10-18, 周五</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="vertical-align:text-top; background-image: url('/static/cover_images/coding.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+				<div class="right-info" id="Toc">
+					<span class="toctitle" style="font-size: 2em;">目錄</span>
+					<div class="toc">
+<ul>
+<li><a href="#toc">目錄設置 (TOC)</a><ul>
+<li><a href="#pelicanconf-setting">pelicanconf setting</a><ul>
+<li><a href="#extract_toc">插件 : extract_toc</a></li>
+<li><a href="#markdown">Markdown</a></li>
+</ul>
+</li>
+<li><a href="#html-template-setting">HTML template setting</a></li>
+</ul>
+</li>
+<li><a href="#css">CSS設定</a></li>
+</ul>
+</div>			
+				</div>
+        <div class="inner">
+            <section class="post-content">
+                
+<h1 id="toc">目錄設置 (TOC)</h1>
+<h2 id="pelicanconf-setting">pelicanconf setting</h2>
+<h3 id="extract_toc">插件 : extract_toc</h3>
+<div class="highlight"><pre><span></span><span class="n">PLUGIN_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'./pelican_plugins'</span><span class="p">]</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'i18n_subsites'</span><span class="p">,</span>
+    <span class="s2">"pelican_cjk"</span><span class="p">,</span>
+    <span class="s2">"pelican_cover_image"</span><span class="p">,</span>
+    <span class="s1">'neighbors'</span><span class="p">,</span>   
+    <span class="s1">'extract_toc'</span><span class="p">,</span>
+    <span class="p">]</span>
+</pre></div>
+<h3 id="markdown">Markdown</h3>
+<p>雖然如果不加上上面的<code>extract_toc</code>插件，直接放上下面的段落、也不修改HTML模板。</p>
+<p>依然會在markdown中寫著<code>[TOC]</code>的區域，自動抓標題生成目錄。但若標題太多，導致版面過長反而不好看。</p>
+<p>以下設置的<code>'title'</code>會包在 <code>class=toc</code>裡面。因為後面需要保留這個標題，所以我把從.py設定中拿掉，直接寫在HTML模板。</p>
+<div class="highlight"><pre><span></span><span class="n">MARKDOWN</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'extension_configs'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'markdown.extensions.toc'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">'title'</span><span class="p">:</span> <span class="s1">''</span> <span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">'markdown.extensions.codehilite'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'css_class'</span><span class="p">:</span> <span class="s1">'highlight'</span><span class="p">},</span>
+    <span class="s1">'markdown.extensions.extra'</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s1">'markdown.extensions.meta'</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="c1"># 'markdown.extensions.tables': { }, # 表格</span>
+  <span class="p">},</span>
+  <span class="s1">'output_format'</span><span class="p">:</span> <span class="s1">'html5'</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+<h2 id="html-template-setting">HTML template setting</h2>
+<p>根據<a href="https://github.com/getpelican/pelican-plugins/tree/master/extract_toc">官方文件</a>，在HTML模板裡面想放置目錄的地方插入程式碼，以下是我的網頁模板片段。</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">main</span> <span class="na">class</span><span class="o">=</span><span class="s">"content"</span> <span class="na">role</span><span class="o">=</span><span class="s">"main"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">"post"</span><span class="p">&gt;</span>
+            {% if article.toc %}
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"right-info"</span> <span class="na">id</span><span class="o">=</span><span class="s">"Toc"</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"toctitle"</span><span class="p">&gt;</span>目錄<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                    {{ article.toc }}           
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            {% endif %}
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"inner"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">"post-content"</span><span class="p">&gt;</span>
+                {{article.content}}
+            <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</pre></div>
+<p>經過上面這樣的設定，我的 CSS才成功的抓到 class toc 套用變化 (markdown生成的目錄，預設是用<code>&lt;div class='toc'&gt;&lt;/div&gt;</code>包起來的 )。</p>
+<h1 id="css">CSS設定</h1>
+<p>主要參考文章
+*   <a href="http://www.dribs-drabs.com/blog/post/374276588-%E6%95%99%E5%AD%B8-%7C-html-%2B-css-%E5%8A%A0%E5%85%A5%E6%B5%AE%E5%8B%95%E5%BC%8F%E8%87%AA%E8%A8%82%E9%80%A3%E7%B5%90%E5%8D%80%E5%A1%8A">教學|HTML+CSS 加入浮動式自訂連結區塊</a>
+*   <a href="http://www.dribs-drabs.com/blog/post/321563384-%E6%95%99%E5%AD%B8-%7C-css-%E7%B6%B2%E9%A0%81%E4%BA%92%E5%8B%95%E7%9A%84%E5%A5%BD%E5%B9%AB%E6%89%8B---hover%E7%9A%84%E6%87%89%E7%94%A8">教學|CSS 網頁互動的好幫手 - hover的應用</a>
+*   <a href="https://codepen.io/indamix/pen/drtKh">簡易的沙盒 (可以現場實驗一些位置的屬性)</a></p>
+<div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">right-info</span><span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">25</span><span class="kt">%</span><span class="p">;</span> 
+    <span class="k">max-height</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="p">:</span><span class="mf">0.75</span><span class="kt">em</span><span class="p">;</span>
+    <span class="k">top</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span> <span class="c">/*數字越小越上面*/</span>
+    <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>  <span class="c">/*固定在網頁上不隨卷軸移動 fixed ，若要隨卷軸移動用absolute*/</span>   
+    <span class="k">background</span><span class="p">:</span> <span class="mh">#aa99aa</span><span class="p">;</span>  <span class="c">/*背景顏色*/</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>  <span class="c">/*圓角*/</span>
+    <span class="kp">-moz-</span><span class="k">border-radius</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+    <span class="kp">-webkit-</span><span class="k">border-radius</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>    
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">right-info</span> <span class="p">.</span><span class="nc">toc</span><span class="p">{</span> <span class="c">/*普通情況下，不要展開toc的內容*/</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">toc</span> <span class="p">{</span>
+    <span class="k">text-align</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span> <span class="c">/*文字靠右*/</span>
+    <span class="k">line-height</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span><span class="p">;</span> <span class="c">/* 設定文字行距 */</span>
+    <span class="k">letter-spacing</span><span class="p">:</span> <span class="mf">0.025</span><span class="kt">em</span><span class="p">;</span> <span class="c">/* 設定文字間距 */</span>
+
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">toc</span> <span class="nt">ul</span><span class="p">{</span> <span class="c">/*讓目錄的間隔緊實一點*/</span>
+    <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span> 
+    <span class="c">/*這個屬性是清單的'*'字號的縮排，預設(文章中)是40px 放在縮排目錄太寬*/</span>
+    <span class="n">padding-inline-start</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">right-info</span><span class="p">:</span><span class="nd">hover</span><span class="p">{</span> <span class="c">/*當滑鼠碰到目錄框，展開內容。*/</span>
+    <span class="c">/*如果內容溢出，開啟滾輪(scroll)。</span>
+<span class="c">      使用滾輪模式需要設定母框架的大小(max-width/height)*/</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">25</span><span class="kt">%</span><span class="p">;</span> 
+    <span class="k">max-height</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="p">:</span> <span class="kc">scroll</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">right-info</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">toc</span><span class="p">{</span>  <span class="c">/*當滑鼠移至此區塊時，顯示toc內容*/</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span> 
+<span class="p">}</span>
+</pre></div>
+<p>其實我挺想嘗試<code>position:sticky</code>屬性 (想做到不要讓懸浮目錄標題擋到封面的效果)，不過這似乎是一個實驗性質的屬性，屢屢沒有測試成功，因此最後作罷。參見 : <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position">MDN Web Docs : position </a></p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=[CSS] 懸浮目錄&amp;url=/20191018_floating_toc.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/20191018_floating_toc.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=/20191018_floating_toc.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="/tag/css.html">CSS</a><a href="/tag/technology.html">Technology</a><a href="/tag/html.html">HTML</a>                </aside>
+
+                <div class="clear"></div>
+
+                <aside class="post-author">
+
+
+                        <figure class="post-author-avatar">
+                            <img src="https://img.icons8.com/cotton/256/000000/cat" alt="夜雨" />
+                        </figure>
+                    <div class="post-author-bio">
+                        <h4 class="post-author-name"><a href="/author/ye-yu.html">夜雨</a></h4>
+                            <p class="post-author-about">雜事集散地，介紹在右方隱藏欄:About。  科技筆記(內容不拘):安裝、Debug遇到的困難\閱讀論文熟悉的背景\之後希望閱讀的文章，皆有。</p>
+                            <span class="post-author-location"><i class="ic ic-location"></i> Taiwan</span>
+                            <span class="post-author-website"><a href="https://medium.com/brainynight"><i class="ic ic-link"></i> Website</a></span>
+                        <!-- Social linkes in alphabet order. -->
+                    </div>
+                    <div class="clear"></div>
+                </aside>
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <a class="post-nav-prev" href="/20191017_Git.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">[工具] Git 遠端</h2>
+                            <p class="post-nav-excerpt">Git remote</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/theme/js/script.js"></script>
+
+</body>
+</html>
+
+

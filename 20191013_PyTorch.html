@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>[工具] PyTorch</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="/20191013_PyTorch.html" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+    <meta name="description" content="PyTorch">
+
+    <meta name="author" content="夜雨">
+
+    <meta name="tags" content="Technology">
+    <meta name="tags" content="Tool">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="夜語"/>
+<meta property="og:title" content="[工具] PyTorch"/>
+<meta property="og:description" content="PyTorch"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/20191013_PyTorch.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-10-13 11:00:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/ye-yu.html">
+<meta property="article:section" content="科技筆記"/>
+<meta property="article:tag" content="Technology"/>
+<meta property="article:tag" content="Tool"/>
+<meta property="og:image" content="/static/cover_images/coding.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "[工具] PyTorch",
+  "headline": "[工具] PyTorch",
+  "datePublished": "2019-10-13 11:00:00+08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "夜雨",
+    "url": "/author/ye-yu.html"
+  },
+  "image": "/static/cover_images/coding.jpg",
+  "url": "/20191013_PyTorch.html",
+  "description": "PyTorch"
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+		
+ <!-- dire in /content/pages -->
+		  <li role="presentation"><a href="/pages/20180828_About.html">About</a></li>
+		  <li role="presentation"><a href="/pages/20191015_Storage.html">Storage</a></li>
+		
+	<!--MENU TAG (my change)-->
+		
+		  <li >
+			  <a href="/category/coding.html">Coding</a>
+		  </li>
+		  <li >
+			  <a href="/category/gong-ju.html">工具</a>
+		  </li>
+		  <li class="active" >
+			  <a href="/category/ke-ji-bi-ji.html">科技筆記</a>
+		  </li>
+		  <li >
+			  <a href="/category/lu-shang-jing-ji.html">陸上競技</a>
+		  </li>
+		  <li >
+			  <a href="/category/running.html">Running</a>
+		  </li>
+		  <li >
+			  <a href="/category/ying-xiang-bian-shi.html">影像辨識</a>
+		  </li>
+	<!--my change end-->
+
+<!--
+              <li role="presentation"><a href="/pages/20180828_About.html">About</a></li>
+              <li role="presentation"><a href="/pages/20191015_Storage.html">Storage</a></li>
+-->
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">[工具] PyTorch</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="/author/ye-yu.html">夜雨</a>
+            | <time datetime="2019-10-13, 周日">2019-10-13, 周日</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="vertical-align:text-top; background-image: url('/static/cover_images/coding.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <h2 id="dataloader">DataLoader</h2>
+<p>torch.utils.data.DataLoader: 一個數據讀取接口。</p>
+<p>用來將已有的數據讀取，</p>
+<p>PyTorch中数据读取的一个重要接口是，该接口定义在dataloader.py脚本中，只要是用PyTorch来训练模型基本都会用到该接口，该接口主要用来将自定义的数据读取接口的输出或者PyTorch已有的数据读取接口的输入按照batch size封装成Tensor，后续只需要再包装成Variable即可作为模型的输入，因此该接口有点承上启下的作用，比较重要。这篇博客介绍该接口的源码，主要包含DataLoader和DataLoaderIter两个类。
+dataloader.py脚本的的github地址：https://github.com/pytorch/pytorch/blob/master/torch/utils/data/dataloader.py</p>
+<p>DataLoader类源码如下。先看看__init__中的几个重要的输入：1、dataset，这个就是PyTorch已有的数据读取接口（比如torchvision.datasets.ImageFolder）或者自定义的数据接口的输出，该输出要么是torch.utils.data.Dataset类的对象，要么是继承自torch.utils.data.Dataset类的自定义类的对象。2、batch_size，根据具体情况设置即可。3、shuffle，一般在训练数据中会采用。4、collate_fn，是用来处理不同情况下的输入dataset的封装，一般采用默认即可，除非你自定义的数据读取输出非常少见。5、batch_sampler，从注释可以看出，其和batch_size、shuffle等参数是互斥的，一般采用默认。6、sampler，从代码可以看出，其和shuffle是互斥的，一般默认即可。7、num_workers，从注释可以看出这个参数必须大于等于0，0的话表示数据导入在主进程中进行，其他大于0的数表示通过多个进程来导入数据，可以加快数据导入速度。8、pin_memory，注释写得很清楚了： pin_memory (bool, optional): If True, the data loader will copy tensors into CUDA pinned memory before returning them. 也就是一个数据拷贝的问题。9、timeout，是用来设置数据读取的超时时间的，但超过这个时间还没读取到数据的话就会报错。
+在__init__中，RandomSampler类表示随机采样且不重复，所以起到的就是shuffle的作用。BatchSampler类则是把batch size个RandomSampler类对象封装成一个，这样就实现了随机选取一个batch的目的。这两个采样类都是定义在sampler.py脚本中，地址：https://github.com/pytorch/pytorch/blob/master/torch/utils/data/sampler.py。以上这些都是初始化的时候进行的。当代码运行到要从torch.utils.data.DataLoader类生成的对象中取数据的时候，比如：
+train_data=torch.utils.data.DataLoader(...)
+for i, (input, target) in enumerate(train_data):
+...
+就会调用DataLoader类的__iter__方法，__iter__方法就一行代码：return DataLoaderIter(self)，输入正是DataLoader类的属性。因此当调用__iter__方法的时候就牵扯到另外一个类：DataLoaderIter，接下来介绍。
+————————————————</p>
+<p>本文部分內容修改(擷取)自 CSDN博主「AI之路」的原創文章，遵循 CC 4.0 BY-SA 版權協議。
+source ：<a href="https://blog.csdn.net/u014380165/article/details/79058479">PyTorch源码解读之torch.utils.data.DataLoader</a></p>
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">python3</span>.<span class="mi">6</span><span class="o">/</span><span class="nv">dist</span><span class="o">-</span><span class="nv">packages</span><span class="o">/</span><span class="nv">IPython</span><span class="o">/</span><span class="nv">utils</span><span class="o">/</span><span class="nv">traitlets</span>.<span class="nv">py</span>:<span class="mi">5</span>: <span class="nv">UserWarning</span>: <span class="nv">IPython</span>.<span class="nv">utils</span>.<span class="nv">traitlets</span> <span class="nv">has</span> <span class="nv">moved</span> <span class="nv">to</span> <span class="nv">a</span> <span class="nv">top</span><span class="o">-</span><span class="nv">level</span> <span class="nv">traitlets</span> <span class="nv">package</span>.
+  <span class="nv">warn</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">IPython.utils.traitlets has moved to a top-level traitlets package.</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="nv">test_folder</span> <span class="nv">already</span> <span class="nv">exists</span>
+<span class="nv">Found</span> <span class="mi">500</span> <span class="nv">images</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">folder</span> ..<span class="o">/</span><span class="nv">datasets</span><span class="o">/</span><span class="nv">citys</span><span class="o">/</span><span class="nv">leftImg8bit</span><span class="o">/</span><span class="nv">val</span>
+<span class="nv">Traceback</span> <span class="ss">(</span><span class="nv">most</span> <span class="nv">recent</span> <span class="k">call</span> <span class="nl">last</span><span class="ss">)</span>:
+  <span class="nv">File</span> <span class="s2">&quot;</span><span class="s">eval.py</span><span class="s2">&quot;</span>, <span class="nv">line</span> <span class="mi">113</span>, <span class="nv">in</span> <span class="o">&lt;</span><span class="nv">module</span><span class="o">&gt;</span>
+    <span class="nv">evaluator</span> <span class="o">=</span> <span class="nv">Evaluator</span><span class="ss">(</span><span class="nv">args</span><span class="ss">)</span>
+  <span class="nv">File</span> <span class="s2">&quot;</span><span class="s">eval.py</span><span class="s2">&quot;</span>, <span class="nv">line</span> <span class="mi">51</span>, <span class="nv">in</span> <span class="nv">__init__</span>
+    <span class="nv">norm_layer</span><span class="o">=</span><span class="nv">BatchNorm2d</span><span class="ss">)</span>.<span class="nv">to</span><span class="ss">(</span><span class="nv">self</span>.<span class="nv">device</span><span class="ss">)</span>
+  <span class="nv">File</span> <span class="s2">&quot;</span><span class="s">/content/awesome-semantic-segmentation-pytorch/core/models/model_zoo.py</span><span class="s2">&quot;</span>, <span class="nv">line</span> <span class="mi">122</span>, <span class="nv">in</span> <span class="nv">get_segmentation_model</span>
+    <span class="k">return</span> <span class="nv">models</span>[<span class="nv">model</span>]<span class="ss">(</span><span class="o">**</span><span class="nv">kwargs</span><span class="ss">)</span>
+  <span class="nv">File</span> <span class="s2">&quot;</span><span class="s">/content/awesome-semantic-segmentation-pytorch/core/models/icnet.py</span><span class="s2">&quot;</span>, <span class="nv">line</span> <span class="mi">126</span>, <span class="nv">in</span> <span class="nv">get_icnet</span>
+    <span class="nv">map_location</span><span class="o">=</span><span class="nv">device</span><span class="ss">))</span>
+  <span class="nv">File</span> <span class="s2">&quot;</span><span class="s">/usr/local/lib/python3.6/dist-packages/torch/serialization.py</span><span class="s2">&quot;</span>, <span class="nv">line</span> <span class="mi">386</span>, <span class="nv">in</span> <span class="nv">load</span>
+    <span class="k">return</span> <span class="nv">_load</span><span class="ss">(</span><span class="nv">f</span>, <span class="nv">map_location</span>, <span class="nv">pickle_module</span>, <span class="o">**</span><span class="nv">pickle_load_args</span><span class="ss">)</span>
+  <span class="nv">File</span> <span class="s2">&quot;</span><span class="s">/usr/local/lib/python3.6/dist-packages/torch/serialization.py</span><span class="s2">&quot;</span>, <span class="nv">line</span> <span class="mi">563</span>, <span class="nv">in</span> <span class="nv">_load</span>
+    <span class="nv">magic_number</span> <span class="o">=</span> <span class="nv">pickle_module</span>.<span class="nv">load</span><span class="ss">(</span><span class="nv">f</span>, <span class="o">**</span><span class="nv">pickle_load_args</span><span class="ss">)</span>
+<span class="nv">_pickle</span>.<span class="nv">UnpicklingError</span>: <span class="nv">invalid</span> <span class="nv">load</span> <span class="nv">key</span>, <span class="s1">&#39;</span><span class="s">&lt;</span><span class="s1">&#39;</span>.
+</pre></div>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=[工具] PyTorch&amp;url=/20191013_PyTorch.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/20191013_PyTorch.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=/20191013_PyTorch.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="/tag/technology.html">Technology</a><a href="/tag/tool.html">Tool</a>                </aside>
+
+                <div class="clear"></div>
+
+                <aside class="post-author">
+
+
+                        <figure class="post-author-avatar">
+                            <img src="https://img.icons8.com/cotton/256/000000/cat" alt="夜雨" />
+                        </figure>
+                    <div class="post-author-bio">
+                        <h4 class="post-author-name"><a href="/author/ye-yu.html">夜雨</a></h4>
+                            <p class="post-author-about">雜事集散地，介紹在右方隱藏欄:About。  科技筆記(內容不拘):安裝、Debug遇到的困難\閱讀論文熟悉的背景\之後希望閱讀的文章，皆有。</p>
+                            <span class="post-author-location"><i class="ic ic-location"></i> Taiwan</span>
+                            <span class="post-author-website"><a href="https://medium.com/brainynight"><i class="ic ic-link"></i> Website</a></span>
+                        <!-- Social linkes in alphabet order. -->
+                    </div>
+                    <div class="clear"></div>
+                </aside>
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <a class="post-nav-next" href="/20191014_toyonews.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-left"></i>
+                                <h2 class="post-nav-title">東洋大新聞</h2>
+                            <p class="post-nav-excerpt">一些東洋大雜七雜八的消息</p>
+                        </section>
+                    </a>
+                    <a class="post-nav-prev" href="/20191012_Colab.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">[影像辨識]建模前的背景知識</h2>
+                            <p class="post-nav-excerpt">使用 Colab 訓練神經網路</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/theme/js/script.js"></script>
+
+</body>
+</html>
+
+
