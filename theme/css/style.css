@@ -2005,6 +2005,9 @@ img {
     .post-nav i {
         font-size: 1.5em
     }
+	.right-info {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 480px) {
@@ -2067,12 +2070,18 @@ img {
     .post-nav-prev i {
         margin-right: -1em
     }
+	.right-info {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 320px) {
     .pagination .pagination-label {
         display: none
     }
+	.right-info {
+		display: none;
+	}
 }
 
 
