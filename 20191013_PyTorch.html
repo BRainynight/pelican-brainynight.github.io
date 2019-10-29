@@ -161,7 +161,40 @@
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                <h2 id="dataloader">DataLoader</h2>
+                <h2 id="_1"></h2>
+<div class="highlight"><pre><span></span><span class="n">torch</span><span class="p">.</span><span class="n">argmax</span><span class="p">(</span><span class="k">output</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">).</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">cpu</span><span class="p">().</span><span class="k">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+
+
+<p><a href="https://zhuanlan.zhihu.com/p/36233589">pytorch入坑一 | Tensor及其基本操作</a></p>
+<h2 id="attributes"><strong>屬性( attributes)</strong></h2>
+<ol>
+<li>dtype : 如32-bit floating等</li>
+<li>
+<p>device : torch.Tensor被分配的設備類型 : "cpu" / "cuda"<br>
+    cpu 和 cuda 的轉換，靠 <code>.to</code>實踐</p>
+<p><code>python
+data = torch.Tensor([1])
+data.to(device_cpu)</code>
+3.  layout : 表內存分布，目前只支持 <code>torch.strided</code></p>
+</li>
+</ol>
+<h1 id="_2">創建</h1>
+<p>創建 tensor時，會複製data。想避免複製須使用<code>torch.tensor.detach()</code></p>
+<div class="highlight"><pre><span></span><span class="n">torch</span><span class="p">.</span><span class="n">tensor</span><span class="p">(</span><span class="k">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="k">None</span><span class="p">,</span><span class="n">requires_grad</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="numpy">和numpy 共享數據</h2>
+<p>共享內存，<code>ndarry</code>變動，tensor也會跟著變動，反之亦然</p>
+<div class="highlight"><pre><span></span><span class="n">torch</span><span class="p">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ndarry</span><span class="p">)</span>
+</pre></div>
+
+
+<h1 id="_3">操作</h1>
+<h2 id="_4">降維度</h2>
+<div class="highlight"><pre><span></span><span class="n">torch</span><span class="p">.</span><span class="n">argmax</span><span class="p">(</span><span class="k">input</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
+</pre></div>
             </section>
 
             <section class="post-info">
